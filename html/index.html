@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Musclor</title>
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <main id="app">
+        <div id="allExo">
+            <div v-for="exo in all" class="exo" @click="search(exo)">
+                <p class="exoTitle">{{ exo.name }}</p>
+                <!--<p class="exoDesc"><span class="bold">12kg</span>&nbsp;max</p>-->
+                <!-- Pas eu le temps de faire cette fonctionnalité -->
+                <p class="exoDesc">Ouvrir le détail</p>
+            </div>
+        </div>
+        <div id="newExo">
+            <p>
+                <label>Nom</label>
+                <input v-model="newExo.name" type="text" placeholder="Biceps">
+            </p>
+            <p>
+                <label>Rep</label>
+                <input v-model="newExo.rep" type="number" step="1">
+            </p>
+            <p>
+                <label>Poids</label>
+                <input v-model="newExo.poids" type="number" step="0.1">
+            </p>
+            <p>
+                <button @click="add">Ajouter</button>
+            </p>
+        </div>
+        <div id="details" class="hidden">
+            <button class="btn-close" @click="closeDetails">X</button>
+            <p id="titreExo"></p>
+            <div class="flex-row">
+                <div id="hist">
+                    <table>
+                        <tr v-for="detail in details">
+                            <td><p>Répétition(s): {{ detail.rep }}</p></td>
+                            <td><p>Poids: {{ detail.poids }}</p></td>
+                            <td><button @click="remove(detail)">Supprimer</button></td>
+                        </tr>
+                    </table>
+                </div>
+                <div id="stats">
+                    <canvas id="myChart" width="400" height="400"></canvas>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="/js/vue.js"></script>
+	<script src="/js/vue-resource.min.js"></script>
+    <script src="/js/Chart.js"></script>
+    <script src="/js/main.js"></script>
+</body>
+</html>

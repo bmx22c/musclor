@@ -1,0 +1,161 @@
+* {
+	margin: 0px;
+	padding: 0px;
+}
+
+html {
+    /* background: linear-gradient(133deg, rgba(71,72,108,1) 0%, rgba(71,84,108,1) 100%); */
+    background: linear-gradient(287.56deg, #47546C -100%, #2E3336 99.98%, #47486C 100%);
+	color: #fff;
+}
+
+body {
+	font-family: sans-serif;
+}
+
+$colors: (#FF6968, #7A54FF, #96DA45);
+
+.bold {
+	font-weight: bold;
+}
+
+.hidden {
+    display: none;
+}
+
+.btn-close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background-color: #fff;
+    color: #000;
+    padding: 10px;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    border: none;
+    cursor: pointer;
+}
+
+table > tbody > tr > td {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+table > tbody > tr {
+    &:before {
+        content: "·";
+        font-weight: bold;
+    }
+}
+
+.flex-row {
+    display: flex;
+    flex-direction: row;
+}
+
+#newExo {
+    position: relative;
+    // width: 300px;
+    width: 200px;
+    height: 200px;
+    padding: 25px;
+    margin: 10px;
+    border-radius: 20px;
+    background: linear-gradient(136.84deg, nth($colors, 1) 0%, adjust-hue(nth($colors, 1), 20deg) 103.42%);
+
+
+    p {
+        margin-bottom: 10px;
+    }
+
+    label {
+        margin-bottom: 5px;
+        display: inline-block;
+        width: 75px;
+    }
+    input {
+        width: 100px;
+    }
+    button {
+        position: absolute;
+        bottom: 15px;
+        right: 15px;
+    }
+}
+
+#titreExo {
+    width: 100%;
+    text-align: center;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+#allExo {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+    
+    .exo {
+        position: relative;
+        width: 200px;
+        height: 200px;
+        padding: 25px;
+        margin: 10px;
+        border-radius: 20px;
+        // background: linear-gradient(136.84deg, #FF6968 0%, #FF9966 103.42%);
+        cursor: pointer;
+        
+        &.color-1 {
+            background: linear-gradient(136.84deg, nth($colors, 1) 0%, adjust-hue(nth($colors, 1), 20deg) 103.42%);
+        }
+        &.color-2 {
+            background: linear-gradient(136.84deg, nth($colors, 2) 0%, adjust-hue(nth($colors, 2), 20deg) 103.42%);
+        }
+        &.color-3 {
+            background: linear-gradient(136.84deg, nth($colors, 3) 0%, adjust-hue(nth($colors, 3), 20deg) 103.42%);
+        }
+        
+        .exoTitle {
+            font-size: 20px;
+        }
+
+        .exoDesc {
+            position: absolute;
+            vertical-align: middle;
+            display: flex;
+            align-items: center;
+            height: 200px;
+            top: 0;
+            padding: 25px;
+
+            .bold {
+                font-size: 30px;
+            }
+        }
+    }
+}
+
+$margin: 25px;
+#details {
+	position: absolute;
+    z-index: 10;
+    width: calc(100% - #{$margin * 6});
+    height: calc(100% - #{$margin * 6});
+    margin: $margin;
+    background-color: #000000dd;
+    top: $margin;
+    left: $margin;
+    border-radius: $margin;
+    padding: $margin;
+    overflow: hidden;
+
+    #hist {
+        flex-basis: 50%;
+        width: 50%;
+    }
+    #stats {
+        flex-basis: 50%;
+        width: 50%;
+    }
+}
